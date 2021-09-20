@@ -119,5 +119,5 @@ class String : public Array<char> {
 };
 
 #include "String.inl"
-#include "String.cpp"
+
 #endif

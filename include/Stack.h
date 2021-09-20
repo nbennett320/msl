@@ -104,5 +104,5 @@ class Stack : public List_Base<T> {
 };
 
 #include "Stack.inl"
-#include "Stack.cpp"
+
 #endif

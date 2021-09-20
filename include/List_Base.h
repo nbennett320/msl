@@ -40,6 +40,4 @@ class List_Base {
 
 };
 
-#include "List_Base.cpp"
-
 #endif

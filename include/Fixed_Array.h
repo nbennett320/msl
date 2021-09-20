@@ -66,5 +66,4 @@ class Fixed_Array : public Array_Base<T> {
 };
 
 #include "Fixed_Array.inl"
-#include "Fixed_Array.cpp"
 #endif

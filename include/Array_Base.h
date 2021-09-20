@@ -124,5 +124,4 @@ class Array_Base {
 };
 
 #include "Array_Base.inl"
-#include "Array_Base.cpp"
 #endif

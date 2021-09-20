@@ -210,5 +210,4 @@ class Array : public Array_Base<T> {
 };
 
 #include "Array.inl"
-#include "Array.cpp"
 #endif

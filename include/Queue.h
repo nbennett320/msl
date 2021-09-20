@@ -112,5 +112,5 @@ class Queue : public List_Base<T> {
 };
 
 #include "Queue.inl"
-#include "Queue.cpp"
+
 #endif
