@@ -3,8 +3,7 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-#include <exception>
-#include <iostream>
+// #include <exception>
 #include "List_Base.h"
 #include "Node.h"
 
@@ -16,7 +15,7 @@
 template <typename T>
 class Stack : public List_Base<T> {
   public:
-  /// Type definition of the type.
+  // Type definition of the type.
   typedef T type;
 
   /**
@@ -24,22 +23,22 @@ class Stack : public List_Base<T> {
    *
    * Exception thrown to indicate the stack is empty.
    */
-  class empty_exception : public std::exception {
-    public:
-    // Default constructor.
-    empty_exception (void)
-    :std::exception() {}
+  // class empty_exception : public std::exception {
+  //   public:
+  //   // Default constructor.
+  //   // empty_exception (void)
+  //   // :std::exception() {}
 
-    /**
-     * Initializing constructor.
-     *
-     * @param[in]      msg         Error message.
-     */
-    empty_exception(const char * msg)
-    :std::exception() {
-      std::cout << msg << std::endl;
-    }
-  };
+  //   /**
+  //    * Initializing constructor.
+  //    *
+  //    * @param[in]      msg         Error message.
+  //    */
+  //   // empty_exception(const char * msg)
+  //   // :std::exception() {
+  //   //   std::cout << msg << std::endl;
+  //   // }
+  // };
 
   // Default constructor.
   Stack (void);

@@ -4,9 +4,14 @@
 #ifndef _STRING_H_
 #define _STRING_H_
 
-#include <ostream>
+#include <maestro.h>
 #include "Array.h"
 #include "Stack.h"
+
+extern "C" {
+  #include "string.h"
+  #include "kout.h"
+}
 
 class String : public Array<char> {
   public:
@@ -41,7 +46,7 @@ class String : public Array<char> {
   const char & operator[] (size_t index) const;
 
   // handle ostreams, std::cout << operator
-  friend std::ostream & operator<< (std::ostream & os, const String & str);
+  // const String & operator<< (const String & str);
 
   /**
    * Locate the specified character in the array. The index of the first

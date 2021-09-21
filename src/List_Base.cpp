@@ -2,6 +2,10 @@
 
 #include "List_Base.h"
 
+extern "C" {
+  #include "string.h"
+}
+
 // default constructor
 template <typename T>
 List_Base<T>::List_Base()

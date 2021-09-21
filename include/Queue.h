@@ -3,9 +3,12 @@
 #ifndef _QUEUE_H_
 #define _QUEUE_H_
 
-#include <cstring>
-#include <exception>
+#include <maestro.h>
 #include "List_Base.h"
+
+extern "C" {
+  #include "string.h"
+}
 
 /**
  * @class Queue
@@ -16,26 +19,6 @@ template <typename T>
 class Queue : public List_Base<T> {
   public:
   typedef T type;
-
-  /**
-   * @class empty_exception
-   *
-   * Exception thrown to indicate the queue is empty.
-   */
-  class empty_exception : public std::exception {
-  public:
-    // Default constructor.
-    empty_exception (void)
-    :std::exception() {}
-
-    /**
-     * Initializing constructor.
-     *
-     * @param[in]      msg         Error message.
-     */
-    empty_exception (const char * msg)
-    :std::exception (msg) {}
-  };
 
   // Default constructor.
   Queue (void);

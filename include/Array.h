@@ -4,8 +4,11 @@
 #define _ARRAY_H_
 
 // for size_t definition
-#include <cstring>
 #include "Array_Base.h"
+
+extern "C" {
+  #include "string.h"
+}
 
 /**
  * @class Array

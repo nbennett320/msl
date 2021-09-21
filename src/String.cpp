@@ -1,9 +1,8 @@
 // Noah Bennett - String.cpp
 // Define a String class from Array class
 
-#include <ostream>
-#include <stdlib.h>
-#include <exception>
+// #include <stdlib.h>
+// #include <exception>
 #include "String.h"
 #include "util.h"
 
@@ -78,7 +77,7 @@ char & String::operator[] (size_t index) {
   if(index < this->size_) {
     return this->data_[index];
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: %d", index);
   }
 }
 
@@ -86,16 +85,15 @@ const char & String::operator[] (size_t index) const {
   if(index < this->size_) {
     return this->data_[index];
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: %d", index);
   }
 }
 
-std::ostream & operator<< (std::ostream & stream, const String & str) {
-  for(int i = 0; i < str.size(); i++) {
-    stream << str.charAt(i);
-  }
-  return stream;
-}
+// void & operator<< (String::String stream, const String & str) {
+//   for(int i = 0; i < str.size(); i++) {
+//     kprintf("%c", str.charAt(i));
+//   }
+// }
 
 int String::find(char ch) const {
   for(int i = 0; i < this->size_; i++) {
@@ -110,9 +108,9 @@ int String::find(char ch) const {
 
 int String::find(char ch, size_t start) const {
   if(start < 0) {
-    throw std::out_of_range("Index cannot be less than zero: " + start);
+    kprintf("Index cannot be less than zero: %d", start);
   } if(start >= this->size_) {
-    throw std::out_of_range("Index out of range at: " + start);
+    kprintf("Index out of range at: %d", start);
   } else {
     for(int i = start; i < this->size_; i++) {
       if(this->data_[i] == ch) {
@@ -160,41 +158,37 @@ bool String::operator!= (const String & rhs) const {
 }
 
 String String::substring(size_t begin) const {
-  try {
-    size_t end = this->size_;
-    if(begin > end) {
-      // start index greater than current size
-      throw begin;
-    } else if(begin < 0) {
-      throw begin;
-    } else {
-      String *str = new String(this->size_);
-      for(int i = begin, j = 0; i < end; i++, j++) {
-        str->data_[j] = this->data_[i];
-      }
-      return *str;
+  size_t end = this->size_;
+  if(begin > end) {
+    // start index greater than current size
+    kprintf("Index out of range at: %d", begin);
+    return NULL;
+  } else if(begin < 0) {
+    kprintf("Index out of range at: %d", begin);
+    return NULL;
+  } else {
+    String *str = new String(this->size_);
+    for(int i = begin, j = 0; i < end; i++, j++) {
+      str->data_[j] = this->data_[i];
     }
-  } catch(size_t e) {
-    throw std::out_of_range("Index out of range at: " + e);
+    return *str;
   }
 }
 
 String String::substring(size_t begin, size_t end) const {
-  try {
-    if(this->size_ < end) {
-      throw end;
-    } else if(begin < 0) {
-      throw begin;
-    } else {
-      String *str = new String(end - begin);
-      for(int i = begin, j = 0; i < str->size(); i++, j++) {
-        str->data_[j] = this->data_[i];
-      }
-      return *str;
+  if(this->size_ < end) {
+    kprintf("Index out of range at: %d", end);
+    return NULL;
+  } else if(begin < 0) {
+    kprintf("Index out of range at: %d", end);
+    return NULL;
+  } else {
+    String *str = new String(end - begin);
+    for(int i = begin, j = 0; i < str->size(); i++, j++) {
+      str->data_[j] = this->data_[i];
     }
-  } catch(size_t e) {
-    throw std::out_of_range("Index out of range at: " + e);
-  } 
+    return *str;
+  }
 }
 
 Array<char> String::split() {
@@ -241,7 +235,7 @@ int String::parseInt() {
     } else if(((int) this->data_[i] >= 48) && ((int) this->data_[i] <= 57)) {
       num = num * 10 + ((int) this->data_[i] - 48);
     } else {
-      throw std::invalid_argument("String cannot be parsed as integer.");
+      kprintf("String cannot be parsed as integer.");
     }
   }
   return isNegative ? (-1 * num) : num; 

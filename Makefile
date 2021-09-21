@@ -1,43 +1,45 @@
 CXX = g++
+AR = ar
 CXXFLAGS = -std=c++17 -m32 -fno-pie -fno-stack-protector -fno-exceptions -fno-rtti -ffreestanding -nostdlib -O2 -Wall -Wextra $(INCLUDE)
-LDFLAGS =
-INCLUDE = -I include
-VPATH = src/
+INCLUDE = -I ./include -I ../../include -I ../libc
+LIB = msl.a
+# VPATH = src/
 
 CPP = \
-	Array_Base.cpp\
-	Array.cpp\
-	Fixed_Array.cpp\
-	List_Base.cpp\
-	Node.cpp\
-	Queue.cpp\
-	Stack.cpp\
-	String.cpp\
+	src/Array_Base.cpp\
+	src/Array.cpp\
+	src/Fixed_Array.cpp\
+	src/List_Base.cpp\
+	src/Node.cpp\
+	src/Queue.cpp\
+	src/Stack.cpp\
+	src/String.cpp\
+	src/msl.cpp\
 
-OBJ = $(addprefix bin/, $(CPP:.cpp=.o))
+OBJ = $(CPP:.cpp=.o)
 
-all: lib test
+all: $(LIB)
 
-bin/%.o: %.cpp
-	echo "prefix bin"
+$(LIB): $(OBJ)
+	$(AR) rcs $(LIB) $(OBJ)
+
+%.o: %.c
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# bin/%.o: %.cpp
+# 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # %.o: %.s
 # 	$(AS) -f elf32 $< -o $@
 
-lib:
-	echo "in lib"
-	$(MAKE) $(OBJ)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+# lib:
+# 	$(MAKE) $(OBJ)
+# 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-.PHONY: test
-test:
-	echo "in test"
-	$(MAKE) -C test
+# .PHONY: test
+# test:
+# 	$(MAKE) -C test
 
 .PHONY: clean
 clean:
-	rm -rf *.o *.bin *.iso
-	rm -rf iso
-	$(MAKE) -C lib clean
-	$(MAKE) -C test clean
+	rm *.o $(LIB)

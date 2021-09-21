@@ -1,6 +1,5 @@
 // Noah Bennett - Queue.cpp
 
-#include <stdexcept>
 #include "Queue.h"
 
 // default constructor

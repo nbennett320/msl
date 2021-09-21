@@ -1,8 +1,11 @@
 // Noah Bennett - Array_Base.cpp
 
-#include <stdexcept>
 #include "Array_Base.h"
 #include "String.h"
+
+extern "C" {
+  #include "kout.h"
+}
 
 // default constructor
 template <typename T>
@@ -61,7 +64,7 @@ T Array_Base<T>::get(size_t index) const {
   if(index < this->size_) {
     return this->data_[index];
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: " + index);
   }
 }
 
@@ -70,6 +73,6 @@ void Array_Base<T>::set(size_t index, T value) {
   if(index < this->size_) {
     this->data_[index] = value;
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: " + index);
   }
 }

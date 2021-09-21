@@ -3,8 +3,12 @@
 #ifndef _LIST_BASE_H_
 #define _LIST_BASE_H_
 
-#include <cstring>
+#include <maestro.h>
 #include "Node.h"
+
+extern "C" {
+  #include "string.h"
+}
 
 template <typename T>
 class List_Base {

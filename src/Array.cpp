@@ -1,8 +1,12 @@
 // Noah Bennett - Array.cpp
 
-#include <stdexcept>
 #include "Array.h"
 #include "Array_Base.h"
+
+extern "C" {
+  #include "string.h"
+  #include "kout.h"
+}
 
 template <typename T>
 Array<T>::Array(void)
@@ -50,10 +54,10 @@ T & Array<T>::operator[] (size_t index) {
 
       return this->data_[index];
     } else {
-      throw std::out_of_range("Index out of range at: " + index);
+      kprintf("Index out of range at: " + index);
     }
   } catch(size_t e) {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: " + index);
   }
 }
 
@@ -63,7 +67,7 @@ const T & Array<T>::operator[] (size_t index) const {
   if(index < this->size_) {
     return this->data_[index];
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: " + index);
   }
 }
 
@@ -72,7 +76,7 @@ T Array<T>::get(size_t index) const {
   if(index < this->size_) {
     return this->data_[index];
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: " + index);
   }
 }
 
@@ -81,7 +85,7 @@ void Array<T>::set(size_t index, T value) {
   if(index < this->size_) {
     this->data_[index] = value;
   } else {
-    throw std::out_of_range("Index out of range at: " + index);
+    kprintf("Index out of range at: " + index);
   }
 }
 
@@ -133,9 +137,9 @@ int Array<T>::find(T value) const {
 template <typename T>
 int Array<T>::find(T val, size_t start) const {
   if(start < 0) {
-    throw std::out_of_range("Index cannot be less than zero: " + start);
+    kprintf("Index cannot be less than zero: " + start);
   } if(start >= this->size_) {
-    throw std::out_of_range("Index out of range at: " + start);
+    kprintf("Index out of range at: " + start);
   } else {
     for(int i = start; i < this->size_; i++) {
       if(this->data_[i] == val) {
@@ -218,7 +222,7 @@ Array<T> Array<T>::slice(size_t begin) const {
       return *arr;
     }
   } catch(size_t e) {
-    throw std::out_of_range("Index out of range at: " + e);
+    kprintf("Index out of range at: %d", e);
   }
 }
 
@@ -238,7 +242,7 @@ Array<T> Array<T>::slice(size_t begin, size_t end) const {
       return *arr;
     }
   } catch(size_t e) {
-    throw std::out_of_range("Index out of range at: " + e);
+    kprintf("Index out of range at: %d", e);
   } 
 }
 
@@ -258,6 +262,6 @@ void Array<T>::calc_size(void) {
     }
     this->size_ = new_size_;
   } catch(...) {
-    throw std::out_of_range("Index out of range.");
+    kprintf("Index out of range.");
   }
 }

@@ -3,9 +3,12 @@
 #ifndef _ARRAY_BASE_H_
 #define _ARRAY_BASE_H_
 
+#include <maestro.h>
+
 // include size_t
-#include <cstring>
-#include <iostream>
+extern "C" {
+  #include "string.h"
+}
 
 /**
  * @class Array_Base
@@ -69,34 +72,34 @@ class Array_Base {
   /**
    * Print the contents of the array.
    */
-  virtual void print(void);
+  // virtual void print(void);
 
   /**
    * Print the contents of the array.
    */
-  virtual void print(bool show_brackets);
+  // virtual void print(bool show_brackets);
 
   /**
    * Print the contents of the array, with string separator passed as parameter.
    */
-  virtual void print(std::string sep);
+  // virtual void print(std::string sep);
 
   /**
    * Print the contents of the array, with char separator passed as parameter.
    */
-  virtual void print(char sep);
+  // virtual void print(char sep);
 
     /**
    * Print the contents of the array, with string separator passed as parameter.
    * Brackets optionally printed.
    */
-  virtual void print(std::string sep, bool show_brackets);
+  // virtual void print(std::string sep, bool show_brackets);
 
   /**
    * Print the contents of the array, with char separator passed as parameter.
    * Brackets optionally printed.
    */
-  virtual void print(char sep, bool show_brackets);
+  // virtual void print(char sep, bool show_brackets);
 
   protected: 
 
@@ -117,9 +120,9 @@ class Array_Base {
   // deep copy data from pointer
   T * deep_copy(const T * data, size_t size);
 
-  virtual void print_base(std::string sep);
+  // virtual void print_base(std::string sep);
   
-  virtual void print_base(char sep);
+  // virtual void print_base(char sep);
 
 };
 

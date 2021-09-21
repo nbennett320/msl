@@ -3,64 +3,64 @@
 // pasted here for cleanliness in Array_Base.cpp
 
 // handle print with string separators
-template <typename T>
-void Array_Base <T>::print_base(std::string sep) {
-  for(int i = 0; i < this->size_; i++) {
-    std::cout << this->data_[i];
-    if((i + 1) < this->size_) {
-      std::cout << sep;
-    }
-  }
-}
+// template <typename T>
+// void Array_Base <T>::print_base(std::string sep) {
+//   for(int i = 0; i < this->size_; i++) {
+//     std::cout << this->data_[i];
+//     if((i + 1) < this->size_) {
+//       std::cout << sep;
+//     }
+//   }
+// }
 
 // handle print with char separators
-template <typename T>
-void Array_Base <T>::print_base(char sep) {
-  for(int i = 0; i < this->size_; i++) {
-    std::cout << this->data_[i];
-    if((i + 1) < this->size_) {
-      std::cout << sep;
-    }
-  }
-}
+// template <typename T>
+// void Array_Base <T>::print_base(char sep) {
+//   for(int i = 0; i < this->size_; i++) {
+//     std::cout << this->data_[i];
+//     if((i + 1) < this->size_) {
+//       std::cout << sep;
+//     }
+//   }
+// }
 
 // print with default separator, ", "
-template <typename T>
-void Array_Base <T>::print() {
-  this->print(", ", true);
-}
+// template <typename T>
+// void Array_Base <T>::print() {
+//   this->print(", ", true);
+// }
 
 // print with default separator, ", "
-template <typename T>
-void Array_Base <T>::print(bool show_brackets) {
-  this->print(", ", show_brackets);
-}
+// template <typename T>
+// void Array_Base <T>::print(bool show_brackets) {
+//   this->print(", ", show_brackets);
+// }
 
-template <typename T>
-void Array_Base <T>::print(std::string sep) {
-  this->print(sep, true);
-}
+// template <typename T>
+// void Array_Base <T>::print(std::string sep) {
+//   this->print(sep, true);
+// }
 
-template <typename T>
-void Array_Base <T>::print(char sep) {
-  this->print(sep, true);
-}
+// template <typename T>
+// void Array_Base <T>::print(char sep) {
+//   this->print(sep, true);
+// }
 
-template <typename T>
-void Array_Base <T>::print(std::string sep, bool show_brackets) {
-  if(show_brackets) std::cout << "[ ";
-  this->print_base(sep);
-  if(show_brackets) std::cout << " ]";
-  std::cout << std::endl;
-}
+// template <typename T>
+// void Array_Base <T>::print(std::string sep, bool show_brackets) {
+//   if(show_brackets) std::cout << "[ ";
+//   this->print_base(sep);
+//   if(show_brackets) std::cout << " ]";
+//   std::cout << std::endl;
+// }
 
-template <typename T>
-void Array_Base <T>::print(char sep, bool show_brackets) {
-  if(show_brackets) std::cout << "[ ";
-  this->print_base(sep);
-  if(show_brackets) std::cout << " ]";
-  std::cout << std::endl;
-}
+// template <typename T>
+// void Array_Base <T>::print(char sep, bool show_brackets) {
+//   if(show_brackets) std::cout << "[ ";
+//   this->print_base(sep);
+//   if(show_brackets) std::cout << " ]";
+//   std::cout << std::endl;
+// }
 
 // deep_copy methods:
 // return a deep copy of data from Array provided
