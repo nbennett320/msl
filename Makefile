@@ -15,6 +15,7 @@ CPP = \
 	src/Stack.cpp\
 	src/String.cpp\
 	src/Matrix.cpp\
+	src/mmath.cpp\
 	src/msl.cpp\
 
 OBJ = $(CPP:.cpp=.o)
