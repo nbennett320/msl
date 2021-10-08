@@ -12,9 +12,14 @@
 // #include "./Stack.h"
 // #include "./String.h"
 
+#ifdef __cplusplus
 extern "C" {
-	// hi 1
-	int test(void);
+#endif
+
+int test();
+
+#ifdef __cplusplus
 }
+#endif
 
 #endif

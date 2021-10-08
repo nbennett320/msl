@@ -14,6 +14,7 @@ CPP = \
 	src/Queue.cpp\
 	src/Stack.cpp\
 	src/String.cpp\
+	src/Matrix.cpp\
 	src/msl.cpp\
 
 OBJ = $(CPP:.cpp=.o)
